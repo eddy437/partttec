@@ -74,15 +74,7 @@
     content-visibility: visible;
   }
 
-  /* Aspect Ratio Utilities */
-  .aspect-square {
-    aspect-ratio: 1 / 1;
-  }
-
-  .aspect-video {
-    aspect-ratio: 16 / 9;
-  }
-
+  /* Additional Aspect Ratio Utilities (Tailwind provides .aspect-square and .aspect-video) */
   .aspect-portrait {
     aspect-ratio: 3 / 4;
   }
@@ -91,29 +83,11 @@
     aspect-ratio: 4 / 3;
   }
 
-  /* Screen Reader Only Utility */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  .aspect-ultrawide {
+    aspect-ratio: 21 / 9;
   }
 
-  .not-sr-only {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-  }
+  /* Note: .sr-only and .not-sr-only are provided by Tailwind CSS out of the box */
 
   /* Skip Link Utility */
   .skip-link {
