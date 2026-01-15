@@ -1,17 +1,179 @@
+/* ==========================================================================
+   TAILWIND DIRECTIVES
+   Core Tailwind CSS imports - DO NOT MODIFY
+   ========================================================================== */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   CUSTOM UTILITIES LAYER
+   Extended utilities for text and layout enhancements
+   ========================================================================== */
+
 @layer utilities {
+  /* Text Utilities */
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Backdrop Blur Utilities */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-DEFAULT {
+    backdrop-filter: blur(8px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
+
+  /* Performance Optimization Utilities */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .will-change-scroll {
+    will-change: scroll-position;
+  }
+
+  /* Content Visibility for Performance */
+  .content-auto {
+    content-visibility: auto;
+  }
+
+  .content-hidden {
+    content-visibility: hidden;
+  }
+
+  .content-visible {
+    content-visibility: visible;
+  }
+
+  /* Aspect Ratio Utilities */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  .aspect-landscape {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Screen Reader Only Utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Skip Link Utility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Gradient Utilities */
+  .gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  .gradient-conic {
+    background-image: conic-gradient(from 0deg, var(--tw-gradient-stops));
+  }
+
+  /* Safe Area Insets for Mobile Devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
+/* ==========================================================================
+   BASE LAYER - THEME VARIABLES
+   Core color system and design tokens
+   All CSS custom properties for theming support
+   ========================================================================== */
+
 @layer base {
+  /* Light Theme (Default)
+     Primary color scheme and UI element colors
+     ========================================================================== */
   :root {
+    /* Font Families */
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
+
+    /* Core Colors - Original Variables (DO NOT MODIFY) */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -31,12 +193,18 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+
+    /* Chart Colors */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Border Radius */
     --radius: 0.5rem;
+
+    /* Sidebar Colors */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -45,9 +213,70 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Extended Semantic Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Hover State Colors */
+    --primary-hover: 0 0% 15%;
+    --secondary-hover: 0 0% 90%;
+    --accent-hover: 0 0% 90%;
+    --destructive-hover: 0 84.2% 55%;
+
+    /* Alpha Channel Variants */
+    --background-alpha: 0 0% 100% / 0.95;
+    --foreground-alpha: 0 0% 3.9% / 0.8;
+    --overlay: 0 0% 0% / 0.5;
+
+    /* Typography Variables */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.025em;
+
+    /* Shadow Variables */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-DEFAULT: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    /* Spacing Variables */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Animation Duration */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+
+    /* Transition Timing */
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
   }
 
+  /* Dark Theme
+     Color overrides for dark mode
+     ========================================================================== */
   .dark {
+    /* Core Colors - Original Variables (DO NOT MODIFY) */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -67,11 +296,15 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+
+    /* Chart Colors - Dark Mode */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Sidebar Colors - Dark Mode */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -80,18 +313,92 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Extended Semantic Colors - Dark Mode */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 0%;
+    --info: 199 89% 58%;
+    --info-foreground: 0 0% 100%;
+
+    /* Hover State Colors - Dark Mode */
+    --primary-hover: 0 0% 90%;
+    --secondary-hover: 0 0% 20%;
+    --accent-hover: 0 0% 20%;
+    --destructive-hover: 0 62.8% 35%;
+
+    /* Alpha Channel Variants - Dark Mode */
+    --background-alpha: 0 0% 3.9% / 0.95;
+    --foreground-alpha: 0 0% 98% / 0.9;
+    --overlay: 0 0% 0% / 0.7;
+
+    /* Shadow Variables - Dark Mode */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-DEFAULT: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
   }
 
+  /* Universal Border Color
+     ========================================================================== */
   * {
     @apply border-border;
   }
 
+  /* Root HTML Element
+     Smooth scroll behavior and text rendering optimizations
+     ========================================================================== */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Body Element
+     Background and text colors from theme
+     Theme transition for smooth color changes
+     ========================================================================== */
   body {
     @apply bg-background text-foreground;
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+                color var(--duration-normal) var(--ease-in-out);
+  }
+
+  /* Focus Visible Styles for Accessibility
+     Enhanced keyboard navigation indicators
+     ========================================================================== */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* High Contrast Mode Support
+     Better visibility for users with high contrast settings
+     ========================================================================== */
+  @media (prefers-contrast: high) {
+    * {
+      border-width: 2px;
+    }
+
+    *:focus-visible {
+      outline-width: 3px;
+    }
   }
 }
 
+/* ==========================================================================
+   ADDITIONAL BASE STYLES
+   Media elements and custom component classes
+   ========================================================================== */
+
 @layer base {
+  /* Media Elements Optimization
+     Responsive images and media with performance enhancements
+     ========================================================================== */
   img,
   svg,
   picture,
@@ -103,11 +410,18 @@
     object-fit: contain;
   }
 
+  /* Image and SVG Size Constraints */
   img,
   svg {
     max-height: 2.25rem;
   }
 
+  /* Lazy Loading Images */
+  img[loading="lazy"] {
+    content-visibility: auto;
+  }
+
+  /* Icon Specific Styles */
   .icon,
   .svg-icon {
     width: 1.5rem;
@@ -116,9 +430,230 @@
     max-height: none;
   }
 
+  /* Image Fill Wrapper for Next.js Image */
   .img-fill-wrapper {
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   COMPONENT PATTERNS
+   Reusable component styles and patterns
+   ========================================================================== */
+
+@layer components {
+  /* Card Pattern with Transitions */
+  .card-hover {
+    transition: transform var(--duration-fast) var(--ease-out),
+                box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Button Transitions */
+  .btn-transition {
+    transition: all var(--duration-fast) var(--ease-in-out);
+  }
+
+  /* Focus Ring Pattern */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Container with Safe Areas */
+  .container-safe {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    background: hsl(var(--background-alpha));
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS AND KEYFRAMES
+   Common animation patterns
+   ========================================================================== */
+
+@layer utilities {
+  /* Fade In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+  }
+
+  /* Slide Up Animation */
+  @keyframes slideUp {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--duration-normal) var(--ease-out);
+  }
+
+  /* Slide Down Animation */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown var(--duration-normal) var(--ease-out);
+  }
+
+  /* Scale In Animation */
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--duration-fast) var(--ease-out);
+  }
+
+  /* Pulse Animation */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Shimmer Animation for Loading States */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      to right,
+      hsl(var(--muted)) 4%,
+      hsl(var(--accent)) 25%,
+      hsl(var(--muted)) 36%
+    );
+    background-size: 1000px 100%;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY FEATURES
+   Support for reduced motion and high contrast
+   ========================================================================== */
+
+/* Reduced Motion Support
+   Respects user's motion preferences
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   Optimizations for printing
+   ========================================================================== */
+
+@media print {
+  /* Remove backgrounds for better print quality */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure links are visible */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  /* Don't show links for fragments or JavaScript */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  /* Page break optimization */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Hide non-essential elements when printing */
+  nav,
+  .no-print {
+    display: none !important;
   }
 }
